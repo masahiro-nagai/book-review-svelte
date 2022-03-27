@@ -1,50 +1,46 @@
 /**
  * Google Books APIのレスポンス
  */
-
-export interface Result {
-    item: BookItem[];
+ export interface Result {
+    items: BookItem[];
     kind: string;
     totalItems: number;
-}
-
-/**
- * 本の情報
- */
-
-export interface BookItem{
+  }
+  
+  /**
+   * 本の情報
+   */
+  export interface BookItem {
     id: string;
-    volemuInfo: {
-        title: string;
-        authors?: string[];
-        publishdData?: string;
-        description?: string;
-    publisher?: string;
-    imageLinks?:{
+    volumeInfo: {
+      title: string;
+      authors?: string[];
+      publishedDate?: string;
+      description?: string;
+      publisher?: string;
+      imageLinks?: {
         smallThumbnail: string;
         thumbnail: string;
+      };
+      pageCount: number;
+      previewLink?: string;
     };
-    pageCount: number;
-    previewLink?: string;
+    saleInfo?: {
+      listPrice: {
+        amount: number;
+      };
     };
-    salesInfo?: {
-        listPrice: {
-            amount: number;
-        };
-    };
-
-}
-
-/**
- * query parameters
- */
-
-export interface Params {
+  }
+  
+  /**
+   * query parameters
+   */
+  export interface Params {
     q: string;
     startIndex?: number;
-}
-
-export interface BookRepositoryInterface{
+  }
+  
+  export interface BookRepositoryInterface {
     get(params: Params): Promise<Result>;
     find(id: string): Promise<BookItem>;
-}
+  }
