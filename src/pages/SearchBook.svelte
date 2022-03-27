@@ -2,6 +2,8 @@
     import SearchBar from '../components/SearchBar.svelte'
     import type { BookItem, Result } from '../repositories/book';
     import RepositoryFactory, { BOOK } from '../repositories/RepositoryFactory'
+    import Spinner from '../components/Spinner.svelte'
+    import BookCard from '../components/BookCard.svelte';
     const BookRepository = RepositoryFactory[BOOK]
   
     let q = ''
@@ -32,7 +34,7 @@
       <div>検索結果が見つかりませんでした。</div>
     {:else}
       {#each books as book (book.id)}
-        <div>{book.volumeInfo.title}</div>
+      <BookCard {book} />
       {/each}
     {/if}
     {#await promise}
