@@ -11,6 +11,6 @@
 <main class="pt-16">
 	<div class="container mx-auto px-6 my-4">
 		<Router {routes}/>
-	</div>	
+	</div>
 </main>
 
