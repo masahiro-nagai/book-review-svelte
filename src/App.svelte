@@ -3,8 +3,10 @@
 	import Header from './components/Header.svelte';
 	import Router from 'svelte-spa-router'
 	import { routes } from './router' 
+	//import {Badge} from 'flowbite-svelte'
+  </script>
 
-</script>
+
 
 <Tailwindcss />
 <Header />
